@@ -2,6 +2,7 @@ package game;
 
 import game.card.PropertyCard;
 import game.card.PropertyWildcard;
+import game.card.RentCard;
 import game.card.action.*;
 
 public class Deck extends CardCollection {
@@ -59,6 +60,15 @@ public class Deck extends CardCollection {
         deck.cards.add(new PropertyWildcard(PropertySetType.GREEN, PropertySetType.STATION));
         deck.cards.add(new PropertyWildcard(PropertySetType.UTILITY, PropertySetType.STATION));
         for (int i = 0; i < 2; i++) deck.cards.add(new PropertyWildcard());
+
+        // Add rent cards
+        for (int i = 0; i < 2; i++) deck.cards.add(new RentCard(PropertySetType.BROWN, PropertySetType.LIGHT_BLUE));
+        for (int i = 0; i < 2; i++) deck.cards.add(new RentCard(PropertySetType.PINK, PropertySetType.ORANGE));
+        for (int i = 0; i < 2; i++) deck.cards.add(new RentCard(PropertySetType.RED, PropertySetType.YELLOW));
+        for (int i = 0; i < 2; i++) deck.cards.add(new RentCard(PropertySetType.GREEN, PropertySetType.DARK_BLUE));
+        for (int i = 0; i < 2; i++) deck.cards.add(new RentCard(PropertySetType.UTILITY, PropertySetType.STATION));
+        for (int i = 0; i < 3; i++) deck.cards.add(new RentCard());
+
         return deck;
     }
 }
