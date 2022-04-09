@@ -1,11 +1,14 @@
 package game;
 
 import game.card.PropertyCard;
+import game.card.PropertyWildcard;
 import game.card.action.*;
 
 public class Deck extends CardCollection {
     public static Deck build() {
         Deck deck = new Deck();
+
+        // Add action cards
         for (int i = 0; i < 2; i++) deck.cards.add(new DealBreaker());
         for (int i = 0; i < 3; i++) deck.cards.add(new DebtCollector());
         for (int i = 0; i < 2; i++) deck.cards.add(new DoubleTheRent());
@@ -16,6 +19,8 @@ public class Deck extends CardCollection {
         for (int i = 0; i < 3; i++) deck.cards.add(new JustSayNo());
         for (int i = 0; i < 10; i++) deck.cards.add(new PassGo());
         for (int i = 0; i < 3; i++) deck.cards.add(new SlyDeal());
+
+        // Add property cards
         deck.cards.add(new PropertyCard(PropertySetType.BROWN, "Old Kent Road"));
         deck.cards.add(new PropertyCard(PropertySetType.BROWN, "Whitechapel Road"));
         deck.cards.add(new PropertyCard(PropertySetType.LIGHT_BLUE, "The Angel Islington"));
@@ -44,6 +49,16 @@ public class Deck extends CardCollection {
         deck.cards.add(new PropertyCard(PropertySetType.STATION, "Liverpool Street Station"));
         deck.cards.add(new PropertyCard(PropertySetType.UTILITY, "Water Works"));
         deck.cards.add(new PropertyCard(PropertySetType.UTILITY, "Electric Company"));
+
+        // Add property wildcards
+        deck.cards.add(new PropertyWildcard(PropertySetType.BROWN, PropertySetType.LIGHT_BLUE));
+        for (int i = 0; i < 2; i++) deck.cards.add(new PropertyWildcard(PropertySetType.PINK, PropertySetType.ORANGE));
+        for (int i = 0; i < 2; i++) deck.cards.add(new PropertyWildcard(PropertySetType.RED, PropertySetType.YELLOW));
+        deck.cards.add(new PropertyWildcard(PropertySetType.GREEN, PropertySetType.DARK_BLUE));
+        deck.cards.add(new PropertyWildcard(PropertySetType.LIGHT_BLUE, PropertySetType.STATION));
+        deck.cards.add(new PropertyWildcard(PropertySetType.GREEN, PropertySetType.STATION));
+        deck.cards.add(new PropertyWildcard(PropertySetType.UTILITY, PropertySetType.STATION));
+        for (int i = 0; i < 2; i++) deck.cards.add(new PropertyWildcard());
         return deck;
     }
 }
